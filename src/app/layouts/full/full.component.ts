@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar'; 
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 @Component({
     selector: 'full-layout',
@@ -10,9 +10,9 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 })
 export class FullComponent implements OnInit {
 
-    color = 'defaultdark';
+    color = 'blue';
     showSettings = false;
-    showMinisidebar = false; 
+    showMinisidebar = false;
     showDarktheme = false;
 
 	public config: PerfectScrollbarConfigInterface = {};
@@ -21,7 +21,7 @@ export class FullComponent implements OnInit {
 
     ngOnInit() {
         if (this.router.url === '/') {
-            this.router.navigate(['/dashboard/dashboard1']);
+            this.router.navigate(['/dashboard/dashboard1']).then();
         }
     }
 
