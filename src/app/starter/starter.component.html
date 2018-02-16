@@ -5,6 +5,9 @@
               <p>Test1 github</p>
                 {{subtitle}}
               <p>Test2 from other</p>
+              <div *ngFor="let m of messages">
+                <p>{{m.message}}</p>
+              </div>
             </div>
         </div>
     </div>

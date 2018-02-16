@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { StarterComponent } from './starter.component';
 
+// services
+import {ChatService} from '../services/chat.service';
 
 const routes: Routes = [{
 	path: '',
@@ -18,9 +20,10 @@ const routes: Routes = [{
 @NgModule({
 	imports: [
     	FormsModule,
-    	CommonModule, 
+    	CommonModule,
     	RouterModule.forChild(routes)
     ],
-	declarations: [StarterComponent]
+	declarations: [StarterComponent],
+  providers: [ChatService]
 })
 export class StarterModule { }
