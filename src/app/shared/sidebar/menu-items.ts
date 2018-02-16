@@ -8,6 +8,15 @@ export const ROUTES: RouteInfo[] = [
       path: '/dashboard', title: 'Home', icon: 'mdi mdi-gauge', class: '', label: '', labelClass: '', extralink: false, submenu: []
     },
     {
+    path: '', title: 'Información', icon: '', class: 'nav-small-cap', label: '', labelClass: '', extralink: true, submenu: []
+    },
+    {
+    path: '', title: 'Cursos', icon: 'fa fa-mortar-board ', class: 'has-arrow', label: '', labelClass: '', extralink: false,
+      submenu: [{ path: '/courses', title: 'Migración Australia', icon: 'fa fa-youtube-play', class: '', label: '', labelClass: '', extralink: false, submenu: [] },
+        { path: '/dashboard', title: 'Vivir en Australia', icon: 'fa fa-youtube-play', class: '', label: '', labelClass: '', extralink: false, submenu: [] }]
+    },
+
+    {
         path: '', title: 'Servicios', icon: '', class: 'nav-small-cap', label: '', labelClass: '', extralink: true, submenu: []
     },{
         path: '', title: 'Agente Bot', icon: 'fa fa fa-grav', class: 'has-arrow', label: '', labelClass: '', extralink: false,
