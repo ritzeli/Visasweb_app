@@ -12,7 +12,7 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit() {
   }
-  course() {
-    this.router.navigate(['/course']).then();
+  course(idx) {
+    this.router.navigate(['/course', idx]).then();
   }
 }
