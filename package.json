@@ -43,6 +43,7 @@
     "pace-js": "^1.0.2",
     "popper.js": "^1.12.5",
     "rxjs": "^5.5.0",
+    "sweetalert": "2.1.0",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
