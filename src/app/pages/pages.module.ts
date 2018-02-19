@@ -7,6 +7,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import { ChatComponent } from './chat/chat.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseComponent } from './course/course.component';
+import { AgentComponent } from './agent/agent.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { CourseComponent } from './course/course.component';
     FormsModule,
     RouterModule.forChild(routes_pages)
   ],
-  declarations: [DashboardComponent, ChatComponent, CoursesComponent, CourseComponent]
+  declarations: [DashboardComponent, ChatComponent, CoursesComponent, CourseComponent, AgentComponent]
 })
 export class PagesModule { }
