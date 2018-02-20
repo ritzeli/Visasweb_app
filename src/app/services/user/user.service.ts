@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import * as swal from 'sweetalert';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/switchMap';
 interface Roles {
   reader: boolean;
   author?: boolean;
@@ -25,10 +26,18 @@ interface User {
 }
 @Injectable()
 export class UserService {
-
+  user: Observable<User>;
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
               private router: Router) {
+    // all User is in this function
+    this.user = this.afAuth.authState.switchMap(user => {
+      if (user) {
+        return this.afs.doc<User>('Users' + user.uid).valueChanges();
+      } else {
+        return Observable.of(null);
+      }
+    });
   }
   // sign_up with email and password providers google.
   public email_create_user(email: string , password: string , name: string) {

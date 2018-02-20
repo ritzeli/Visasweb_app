@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import {UserService} from '../services/services.index';
-import {AngularFireAuth} from 'angularfire2/auth';
 // Alert
 import * as swal from 'sweetalert';
 
@@ -17,8 +16,7 @@ declare var $ ;
 export class LoginComponent implements OnInit, AfterViewInit {
   login_form: FormGroup;
   constructor(public router: Router,
-              private user_services: UserService,
-              public  afs: AngularFireAuth) { }
+              private user_services: UserService) { }
 
   ngOnInit() {
     this.login_form = new FormGroup({
@@ -44,8 +42,5 @@ export class LoginComponent implements OnInit, AfterViewInit {
     const email = this.login_form.value.user_name;
     const password =  this.login_form.value.password;
     this.user_services.email_sign_up(email , password).then();
-    this.afs.authState.subscribe(res => {
-      console.log(res);
-    });
   }
 }
