@@ -1,7 +1,8 @@
 import {Component, group, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UserService} from '../services/services.index';
 import * as swal from 'sweetalert';
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,17 +11,17 @@ import * as swal from 'sweetalert';
 })
 export class SignupComponent implements OnInit {
   forma: FormGroup;
-  constructor() { }
+  constructor(private user_services: UserService , private router: Router) { }
 
   the_same(term1: string , term2: string) {
     return ( group: FormGroup) => {
-      let pass1 = group.controls[term1].value;
-      let pass2 = group.controls[term2].value;
-      if (pass1 === pass2){
+      const pass1 = group.controls[term1].value;
+      const pass2 = group.controls[term2].value;
+      if (pass1 === pass2) {
         return null;
       }
       return {sonigules: true};
-    }
+    };
   }
 
   ngOnInit() {
@@ -42,5 +43,13 @@ export class SignupComponent implements OnInit {
       return;
     }
     console.log(this.forma.value);
+    const name = this.forma.value.name;
+    const email =  this.forma.value.email;
+    const password = this.forma.value.password;
+    this.user_services.email_create_user(email, password, name ).then(() => {
+        this.router.navigate(['/login']).then(() => {
+          swal('Bienvendio! VisasWeb.com', 'Tú registro fue exitoso ingresa a la plataforma con tu Usuario y contraseña', 'success').then();
+        });
+    });
   }
 }

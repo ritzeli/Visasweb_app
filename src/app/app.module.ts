@@ -20,6 +20,8 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { Approutes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SpinnerComponent } from './shared/spinner.component';
+// services
+import {ServicesModule} from './services/services.module';
 
 // Google tools
 import { AngularFireModule } from 'angularfire2';
@@ -53,6 +55,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
+    ServicesModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
