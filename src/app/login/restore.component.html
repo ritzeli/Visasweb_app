@@ -1,3 +1,19 @@
-<p>
-  restore works!
-</p>
+<section id="wrapper" class="login-register login-sidebar all_screen" style="background-image:url(assets/images/background/login-register.jpg);">
+  <div class="login-box card">
+    <div class="card-body">
+      <form ngNativeValidate  [formGroup]= "login_password" (ngSubmit)="restore_password()" class="form-horizontal form-material" id="loginform" action="index.html">
+        <a href="javascript:void(0)" class="text-center db"><img src="../assets/images/logo-icon.png" alt="Home" /><br/><img src="../assets/images/logo-text.png" alt="Home" /></a>
+        <div class="form-group">
+          <div class="col-xs-12">
+            <input formControlName="user_password"  name="user_password" class="form-control" type="password" required placeholder="Nueva contraseña">
+          </div>
+        </div>
+        <div class="form-group text-center m-t-20">
+          <div class="col-xs-12">
+            <button  class="btn btn-info btn-lg btn-block btn-rounded text-uppercase waves-effect waves-light" type="submit">Cambiar contraseña</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -121,4 +121,25 @@ export class UserService {
     });
   }
 
+  public account_chage_password(actionCode , newPassword){
+    this.afAuth.auth.verifyPasswordResetCode(actionCode).then((email) => {
+      console.log(email);
+
+      this.afAuth.auth.confirmPasswordReset(actionCode, newPassword).then(() => {
+
+        this.router.navigate(['/login']).then();
+
+      }).catch((error) => {
+
+         console.error(error);
+
+      });
+
+    }).catch((error) => {
+       console.log(error);
+      swal('Intentalo de nuevo !' ,'expiro el link', 'error').then();
+    });
+
+  }
+
 }
