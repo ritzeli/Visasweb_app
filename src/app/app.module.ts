@@ -32,6 +32,7 @@ import { environment } from '../environments/environment';
 import { PagenotfoundComponent } from './error/pagenotfound/pagenotfound.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { RestoreComponent } from './login/restore.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -49,7 +50,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SidebarComponent,
     PagenotfoundComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    RestoreComponent
   ],
   imports: [
     CommonModule,

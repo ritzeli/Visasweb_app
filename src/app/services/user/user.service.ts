@@ -112,4 +112,13 @@ export class UserService {
     });
   }
 
+  // account recovery
+  public account_recovery(email) {
+    this.afAuth.auth.sendPasswordResetEmail(email).then(() => {
+      swal('El email fue enviado a:' , email , 'success').then();
+    }).catch(() =>{
+      swal('Intentalo de nuevo !' ,'El correo no exite', 'error').then();
+    });
+  }
+
 }
