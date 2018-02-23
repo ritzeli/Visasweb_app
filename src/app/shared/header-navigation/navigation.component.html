@@ -16,7 +16,7 @@
                 <!-- Logo text --><span>
                  <!-- dark Logo text -->
                  <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                 <!-- Light Logo text -->    
+                 <!-- Light Logo text -->
                  <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span> </a>
         </div>
         <!-- ============================================================== -->
@@ -26,7 +26,7 @@
             <!-- ============================================================== -->
             <!-- toggle and nav items -->
             <!-- ============================================================== -->
-            <ul class="navbar-nav mr-auto mt-md-0">                
+            <ul class="navbar-nav mr-auto mt-md-0">
                 <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
             </ul>
             <!-- ============================================================== -->
@@ -58,9 +58,9 @@
                                     <a href="#" *ngFor="let notification of notifications">
                                         <div class="round {{notification.round}}"><i class="{{notification.icon}}"></i></div>
                                         <div class="mail-contnet">
-                                            <h5>{{notification.title}}</h5> <span class="mail-desc">{{notification.subject}}</span> <span class="time">{{notification.time}}</span> 
+                                            <h5>{{notification.title}}</h5> <span class="mail-desc">{{notification.subject}}</span> <span class="time">{{notification.time}}</span>
                                         </div>
-                                    </a> 
+                                    </a>
                                 </div>
                             </li>
                             <li>
@@ -87,13 +87,13 @@
                             <li>
                                 <div class="message-center" [perfectScrollbar]="config">
                                     <a href="#" *ngFor="let mymessage of mymessages">
-                                        <div class="user-img"> <img src="{{mymessage.useravatar}}" alt="user" class="img-circle" width="40"> 
-                                            <span class="profile-status {{mymessage.status}} pull-right"></span> 
+                                        <div class="user-img"> <img src="{{mymessage.useravatar}}" alt="user" class="img-circle" width="40">
+                                            <span class="profile-status {{mymessage.status}} pull-right"></span>
                                         </div>
                                         <div class="mail-contnet">
-                                            <h5>{{mymessage.from}}</h5> 
-                                            <span class="mail-desc">{{mymessage.subject}}</span> 
-                                            <span class="time">{{mymessage.time}}</span> 
+                                            <h5>{{mymessage.from}}</h5>
+                                            <span class="mail-desc">{{mymessage.subject}}</span>
+                                            <span class="time">{{mymessage.time}}</span>
                                         </div>
                                     </a>
                                 </div>
@@ -121,26 +121,26 @@
                                     <img src="assets/images/big/img1.jpg" class="img-responsive" alt="Random first slide">
                                     <div class="carousel-caption">
                                       <h3 class="text-white font-bold">First slide label</h3>
-                                      
+
                                     </div>
                                   </ng-template>
                                   <ng-template ngbSlide>
                                     <img src="assets/images/big/img2.jpg" class="img-responsive" alt="Random second slide">
                                     <div class="carousel-caption">
                                       <h3 class="text-white font-bold">Second slide label</h3>
-                                      
+
                                     </div>
                                   </ng-template>
                                   <ng-template ngbSlide>
                                     <img src="assets/images/big/img3.jpg" class="img-responsive" alt="Random third slide">
                                     <div class="carousel-caption">
                                       <h3 class="text-white font-bold">Third slide label</h3>
-                                      
+
                                     </div>
                                   </ng-template>
                                 </ngb-carousel>
                                 <!-- End CAROUSEL -->
-                                
+
                             </li>
                             <li class="col-lg-3 m-b-30">
                                 <h4 class="m-b-20">ACCORDION</h4>
@@ -148,7 +148,7 @@
                                 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" class="accordion nav-accordion">
                                   <ngb-panel title="Simple">
                                     <ng-template ngbPanelContent>
-                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
                                     </ng-template>
                                   </ngb-panel>
                                   <ngb-panel>
@@ -161,13 +161,13 @@
                                   </ngb-panel>
                                   <ngb-panel title="Disabled" [disabled]="true">
                                     <ng-template ngbPanelContent>
-                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
                                     </ng-template>
                                   </ngb-panel>
                                 </ngb-accordion>
                             </li>
-                            
-                            
+
+
                             <li class="col-lg-3  m-b-30">
                                 <h4 class="m-b-20">CONTACT US</h4>
                                 <!-- Contact -->
@@ -221,7 +221,7 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                            <li><a (click)="Logout_off()" ><i class="fa fa-power-off"></i> Exit</a></li>
                         </ul>
                     </div>
                 </li>

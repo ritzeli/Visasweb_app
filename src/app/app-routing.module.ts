@@ -7,6 +7,8 @@ import {PagenotfoundComponent} from './error/pagenotfound/pagenotfound.component
 import {LoginComponent} from './login/login.component';
 import {SignupComponent} from './signup/signup.component';
 import {RestoreComponent} from './login/restore.component';
+// guards
+import {LoginGuard} from './services/services.index';
 
 export const Approutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -16,7 +18,8 @@ export const Approutes: Routes = [
 {
     path: '',
     component: FullComponent,
-    loadChildren : './pages/pages.module#PagesModule'
+    canActivate: [ LoginGuard ],
+    loadChildren : './pages/pages.module#PagesModule',
 },
 { path: '**', redirectTo: '/page-not-found'}];
 

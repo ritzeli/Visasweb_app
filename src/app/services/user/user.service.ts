@@ -7,10 +7,9 @@ import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import * as swal from 'sweetalert';
 import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/switchMap';
 interface Roles {
-  reader: boolean;
-  author?: boolean;
+  subscriber: boolean;
+  editor?: boolean;
   admin?: boolean;
 }
 
@@ -22,7 +21,7 @@ interface User {
   date_created?: any;
   last_date?: any;
   key_view?: any;
-  role?: Roles;
+  roles?: Roles;
 }
 @Injectable()
 export class UserService {
@@ -33,7 +32,7 @@ export class UserService {
     // all User is in this function
     this.user = this.afAuth.authState.switchMap(user => {
       if (user) {
-        return this.afs.doc<User>('Users' + user.uid).valueChanges();
+        return this.afs.doc<User>('Users/' + user.uid).valueChanges();
       } else {
         return Observable.of(null);
       }
@@ -73,7 +72,7 @@ export class UserService {
                 if ( !(res.length === 0)) {
                   console.log('pats the register');
                   this.router.navigate(['/dashboard']).then();
-                  return this.Up_data_user_email(user).then();
+                  return; // this.Up_data_user_email(user).then();
                 }
               }
             );
@@ -85,7 +84,7 @@ export class UserService {
   }
   // for email
   private  New_user_data_email(user, name: string) {
-    const userRef1: AngularFirestoreDocument<any> = this.afs.doc( 'Users/' + user.uid);
+    const userRef1: AngularFirestoreDocument<any> = this.afs.doc( 'Users' + user.uid);
     const data: User = {
       User_id: user.uid,
       email: user.email,
@@ -93,14 +92,13 @@ export class UserService {
       name: name,
       date_created: user.metadata.a,
       key_view: ['visasweb'],
-      role: { reader: true}
+      roles: {  subscriber: true}
     };
     return userRef1.set(data);
   }
   private Up_data_user_email(user) {
-    const userRef2: AngularFirestoreDocument<any> = this.afs.doc('Users/' + user.uid);
-    const data: User = {
-      User_id: user.uid,
+    const userRef2: AngularFirestoreDocument<any> = this.afs.doc('Users' + user.uid);
+    const data = {
       last_date: user.metadata.b
     };
     return userRef2.update(data);
@@ -117,7 +115,7 @@ export class UserService {
     this.afAuth.auth.sendPasswordResetEmail(email).then(() => {
       swal('El email fue enviado a:' , email , 'success').then();
     }).catch(() =>{
-      swal('Intentalo de nuevo !' ,'El correo no exite', 'error').then();
+      swal('Intentalo de nuevo !' ,'El correo no existe', 'error').then();
     });
   }
 
@@ -127,7 +125,9 @@ export class UserService {
 
       this.afAuth.auth.confirmPasswordReset(actionCode, newPassword).then(() => {
 
-        this.router.navigate(['/login']).then();
+        this.router.navigate(['/login']).then(() => {
+          swal(' listo !' ,'Ingresa con tú nueva contraseña', 'success').then();
+        });
 
       }).catch((error) => {
 
@@ -137,7 +137,7 @@ export class UserService {
 
     }).catch((error) => {
        console.log(error);
-      swal('Intentalo de nuevo !' ,'expiro el link', 'error').then();
+      swal('Intentalo de nuevo !' , 'Expiro el link', 'error').then();
     });
 
   }
