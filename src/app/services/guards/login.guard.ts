@@ -24,3 +24,4 @@ export class LoginGuard implements CanActivate {
       });
   }
 }
+// todo hacer los otros 2 guard de permisos.
