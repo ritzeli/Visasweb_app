@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import {ApiAiClient} from "api-ai-javascript";
-import {environment} from '../../../environments/environment';
-
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable()
 export class ChatbotService {
-  readonly token = environment.dialogflow.angularBot;
-  readonly client = new ApiAiClient({ accessToken: this.token }).textRequest('Hola!')
-    .then((response) => {console.log(response)})
-    .catch((error) => {/* do something here too */});
   tex: any = '' ;
-  constructor() {
+  readonly ROOT_URL = 'https://us-central1-visasweb-57098.cloudfunctions.net/chatbot'
+  constructor(private http: HttpClient) {
     this.tex = 'Hola desde el servicio chat-bot funcionando desde el index';
+  }
+  test_conexion() {
+    let params = new HttpParams();
+    params = params.set('message', 'hola');
+    params = params.set('User_id', 'xdcsdfs123');
+    return this.http.get(this.ROOT_URL, {params});
   }
 }

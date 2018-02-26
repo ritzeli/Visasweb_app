@@ -7,10 +7,16 @@ import {ChatbotService} from '../../services/services.index';
   styleUrls: ['./chat-bot.component.css']
 })
 export class ChatBotComponent implements OnInit {
-
+  message: any ;
   constructor(public chatBot: ChatbotService) { }
 
   ngOnInit() {
+  }
+  send() {
+    this.chatBot.test_conexion().subscribe(res => {
+      this.message = res;
+      console.log(this.message.message_test);
+    });
   }
 
 }
