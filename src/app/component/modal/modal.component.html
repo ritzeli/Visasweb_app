@@ -12,7 +12,7 @@
 				    </button>
 				  </div>
 				  <div class="modal-body">
-				    <p>One fine body&hellip;</p>
+				    <p>contenido del modal</p>
 				  </div>
 				  <div class="modal-footer">
 				    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
@@ -24,20 +24,20 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6"> 
+    <div class="col-md-6">
         <div class="card">
             <div class="card-body">
                 <h3 class="card-title">Modal with custom class</h3>
                 <h6 class="card-subtitle">You can pass extra class to the model</h6>
                 <ng-template #content2 let-c="close" let-d="dismiss">
-					  <div class="modal-header"> 
+					  <div class="modal-header">
 					    <h4 class="modal-title text-white">Modal title</h4>
 					    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
 					      <span aria-hidden="true">&times;</span>
 					    </button>
 					  </div>
 					  <div class="modal-body">
-					    <p>One fine body&hellip;</p>
+					    <p>contenido del modal</p>
 					  </div>
 					  <div class="modal-footer">
 					    <button type="button" class="btn btn-inverse" (click)="c('Close click')">Close</button>

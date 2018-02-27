@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ChatbotService} from '../../services/services.index';
 
+declare var $: any;
+
 @Component({
   selector: 'app-chat-bot',
   templateUrl: './chat-bot.component.html',
@@ -8,15 +10,19 @@ import {ChatbotService} from '../../services/services.index';
 })
 export class ChatBotComponent implements OnInit {
   message: any ;
-  constructor(public chatBot: ChatbotService) { }
+  formValue: any;
+  ban: any;
+  constructor(public chat_bot_service: ChatbotService) {
+    this.chat_bot_service.read_messages().subscribe();
+  }
 
   ngOnInit() {
   }
-  send() {
-    this.chatBot.test_conexion().subscribe(res => {
-      this.message = res;
-      console.log(this.message.message_test);
-    });
+
+  sendMessage() {
+    this.chat_bot_service.converse(this.formValue , '213123sdas');
+    this.formValue = '';
   }
+
 
 }
