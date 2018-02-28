@@ -20,6 +20,7 @@ interface User {
   name?: string;
   date_created?: any;
   last_date?: any;
+  key_bot?: any;
   key_view?: any;
   roles?: Roles;
 }
@@ -60,6 +61,7 @@ export class UserService {
         }
       ).catch( error => { console.log(error); });
   }
+  // sign up
   public email_sign_up(email: string , password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user) => {
@@ -84,20 +86,22 @@ export class UserService {
   }
   // for email
   private  New_user_data_email(user, name: string) {
-    const userRef1: AngularFirestoreDocument<any> = this.afs.doc( 'Users' + user.uid);
+    const userRef1: AngularFirestoreDocument<any> = this.afs.doc( 'Users/' + user.uid);
     const data: User = {
       User_id: user.uid,
       email: user.email,
       img: user.photoURL,
       name: name,
       date_created: user.metadata.a,
+      key_bot: false,
       key_view: ['visasweb'],
       roles: {  subscriber: true}
     };
     return userRef1.set(data);
   }
+  // data up
   private Up_data_user_email(user) {
-    const userRef2: AngularFirestoreDocument<any> = this.afs.doc('Users' + user.uid);
+    const userRef2: AngularFirestoreDocument<any> = this.afs.doc('Users/' + user.uid);
     const data = {
       last_date: user.metadata.b
     };
@@ -109,7 +113,6 @@ export class UserService {
       this.router.navigate(['/login']).then();
     });
   }
-
   // account recovery
   public account_recovery(email) {
     this.afAuth.auth.sendPasswordResetEmail(email).then(() => {
@@ -118,7 +121,7 @@ export class UserService {
       swal('Intentalo de nuevo !' ,'El correo no existe', 'error').then();
     });
   }
-
+  // functions for change password
   public account_chage_password(actionCode , newPassword){
     this.afAuth.auth.verifyPasswordResetCode(actionCode).then((email) => {
       console.log(email);

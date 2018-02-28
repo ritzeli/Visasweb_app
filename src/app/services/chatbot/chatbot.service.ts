@@ -52,7 +52,11 @@ export class ChatbotService {
           this.chat_message.unshift(message_one);
         }
         return this.chat_message;
-      }
-    );
+      });
+  }
+  // is bot started
+  public  bot_started() {
+    const bot_init: AngularFirestoreCollection<any> = this.afs
+      .collection('RoomsBot');
   }
 }
