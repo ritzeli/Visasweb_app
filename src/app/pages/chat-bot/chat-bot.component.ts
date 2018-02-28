@@ -19,12 +19,10 @@ export class ChatBotComponent implements OnInit {
   ngOnInit() {
     this.user_service.user.subscribe( User => {
       this.user_chat = User;
-      console.log(this.user_chat.User_id);
       this.chat_bot_service.bot_started(this.user_chat.User_id)
         .subscribe(res => {
           this.RoomBot = res;
           this.RoomBot_id = this.RoomBot[0].RoomBot_id;
-          console.log(this.RoomBot_id);
           this.chat_bot_service.read_messages(this.RoomBot_id).subscribe();
         });
     });

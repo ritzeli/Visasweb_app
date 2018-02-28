@@ -42,7 +42,6 @@ export class SignupComponent implements OnInit {
       swal('Recuerda!', 'Debes aceptar los terminos  y condiciones', 'warning').then();
       return;
     }
-    console.log(this.forma.value);
     const name = this.forma.value.name;
     const email =  this.forma.value.email;
     const password = this.forma.value.password;

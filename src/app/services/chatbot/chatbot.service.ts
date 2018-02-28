@@ -23,7 +23,6 @@ export class ChatbotService {
          .subscribe(res => {
            this.result_bot = res;
            this.tex_bot = this.result_bot.message_test.result.fulfillment.speech;
-           console.log(this.tex_bot);
            const botMessage = new Message(this.tex_bot, 'bot');
            this.update_message(botMessage , RoomBot_id);
          });
@@ -36,7 +35,6 @@ export class ChatbotService {
       sendBay: msg.sentBy,
       date : new Date().getTime()
     };
-    console.log(msg.content);
     this.afs.collection('RoomsBot/' + RoomBot_id + '/MessageBot')
       .doc(MessageBot_id).set(data).then();
   }

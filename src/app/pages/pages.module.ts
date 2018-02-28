@@ -10,7 +10,6 @@ import { CourseComponent } from './course/course.component';
 import { AgentComponent } from './agent/agent.component';
 import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import {ServicesModule} from '../services/services.module';
-import {NgbdModalBasic} from '../component/modal/modal.component';
 
 @NgModule({
   imports: [
@@ -25,8 +24,7 @@ import {NgbdModalBasic} from '../component/modal/modal.component';
     CoursesComponent,
     CourseComponent,
     AgentComponent,
-    ChatBotComponent,
-    NgbdModalBasic
+    ChatBotComponent
   ],
   providers: [
   ]
