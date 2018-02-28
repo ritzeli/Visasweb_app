@@ -12,22 +12,26 @@ export class ChatBotComponent implements OnInit {
   formValue: any;
   ban: any;
   user_chat: any = {} ;
-  constructor(public chat_bot_service: ChatbotService, public user_service: UserService) {
-
-    this.chat_bot_service.read_messages().subscribe();
-  }
+  RoomBot: any = [] ;
+  RoomBot_id: any ;
+  constructor(public chat_bot_service: ChatbotService, public user_service: UserService) { }
 
   ngOnInit() {
     this.user_service.user.subscribe( User => {
       this.user_chat = User;
       console.log(this.user_chat.User_id);
+      this.chat_bot_service.bot_started(this.user_chat.User_id)
+        .subscribe(res => {
+          this.RoomBot = res;
+          this.RoomBot_id = this.RoomBot[0].RoomBot_id;
+          console.log(this.RoomBot_id);
+          this.chat_bot_service.read_messages(this.RoomBot_id).subscribe();
+        });
     });
   }
 
   sendMessage() {
-    this.chat_bot_service.converse(this.formValue , this.user_chat.User_id);
-    this.formValue = '';
+      this.chat_bot_service.converse(this.formValue , this.user_chat.User_id, this.RoomBot_id);
+      this.formValue = '';
   }
-
-
 }

@@ -7,6 +7,9 @@ import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import * as swal from 'sweetalert';
 import 'rxjs/add/operator/switchMap';
+// chat_bot services
+import {ChatbotService} from '../chatbot/chatbot.service';
+
 interface Roles {
   subscriber: boolean;
   editor?: boolean;
@@ -20,7 +23,6 @@ interface User {
   name?: string;
   date_created?: any;
   last_date?: any;
-  key_bot?: any;
   key_view?: any;
   roles?: Roles;
 }
@@ -29,7 +31,8 @@ export class UserService {
   user: Observable<User>;
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
-              private router: Router) {
+              private router: Router,
+              private chat_bot_services: ChatbotService) {
     // all User is in this function
     this.user = this.afAuth.authState.switchMap(user => {
       if (user) {
@@ -93,10 +96,10 @@ export class UserService {
       img: user.photoURL,
       name: name,
       date_created: user.metadata.a,
-      key_bot: false,
       key_view: ['visasweb'],
       roles: {  subscriber: true}
     };
+    this.chat_bot_services.create_Room_bot(user.uid);
     return userRef1.set(data);
   }
   // data up
