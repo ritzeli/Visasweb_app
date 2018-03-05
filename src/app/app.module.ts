@@ -33,6 +33,7 @@ import { PagenotfoundComponent } from './error/pagenotfound/pagenotfound.compone
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { RestoreComponent } from './login/restore.component';
+import { ChatsVisaswebComponent } from './chats-visasweb/chats-visasweb.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -51,7 +52,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     PagenotfoundComponent,
     LoginComponent,
     SignupComponent,
-    RestoreComponent
+    RestoreComponent,
+    ChatsVisaswebComponent
   ],
   imports: [
     CommonModule,

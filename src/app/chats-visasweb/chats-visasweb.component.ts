@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {ChatbotService} from '../../services/services.index';
-import {UserService} from '../../services/user/user.service';
+import {ChatbotService} from '../services/services.index';
+import {UserService} from '../services/user/user.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-chat-bot',
-  templateUrl: './chat-bot.component.html',
-  styleUrls: ['./chat-bot.component.css']
+  selector: 'app-chats-visasweb',
+  templateUrl: './chats-visasweb.component.html',
+  styleUrls: ['./chats-visasweb.component.css']
 })
-export class ChatBotComponent implements OnInit {
+export class ChatsVisaswebComponent implements OnInit {
   message: any ;
   formValue: any;
   ban: any;
@@ -31,7 +31,9 @@ export class ChatBotComponent implements OnInit {
     });
   }
 
-  susan_chat() {
-      this.router.navigate( ['/info-chat']).then();
+  sendMessage() {
+    this.chat_bot_service.converse(this.formValue , this.user_chat.User_id, this.RoomBot_id);
+    this.formValue = '';
   }
+
 }
