@@ -43,7 +43,7 @@ export class ChatbotService {
   read_messages(RoomBot_id: any) {
     const message_read: AngularFirestoreCollection<any> = this.afs
       .collection('RoomsBot/' + RoomBot_id + '/MessageBot', ref =>
-        ref.orderBy( 'date', 'desc').limit(10));
+        ref.orderBy( 'date', 'desc').limit(20));
     return message_read.valueChanges().map((message) => {
         this.chat_message = [];
         for (let message_one of message ){
