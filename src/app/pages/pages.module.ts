@@ -10,13 +10,15 @@ import { CourseComponent } from './course/course.component';
 import { AgentComponent } from './agent/agent.component';
 import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import {ServicesModule} from '../services/services.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes_pages),
-    ServicesModule
+    ServicesModule,
+    NgbModule
   ],
   declarations: [
     DashboardComponent,
