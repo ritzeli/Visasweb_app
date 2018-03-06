@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {UserService} from '../../services/user/user.service';
 
 @Component({
   selector: 'app-agent',
@@ -138,11 +139,19 @@ export class AgentComponent implements OnInit {
     important: true,
     id: 10
   }];
-  constructor(public router: Router) { }
-
+  constructor(public router: Router,
+              public user_service: UserService) { }
+   user_chat: any ;
   ngOnInit() {
+    this.user_service.user.subscribe(user => {
+      this.user_chat = user;
+      console.log(this.user_chat.User_id);
+    });
   }
-  onSelect(message){
-    this.router.navigate(['/info-chat']).then();
+  onSelect(message) {
+    const client_id = this.user_chat.User_id;
+    const provider_id = '34rrefasdf';
+    const room_id = '43tegsevaa';
+    this.router.navigate(['/main-chat/' , client_id , provider_id , room_id]).then();
   }
 }
