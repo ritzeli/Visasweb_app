@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Router} from "@angular/router";
 import * as firebase from "firebase/app";
 import {AngularFireAuth} from "angularfire2/auth";
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreDocument , AngularFirestoreCollection} from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import * as swal from 'sweetalert';
@@ -42,7 +42,7 @@ export class UserService {
       }
     });
   }
-  // sign_up with email and password providers google.
+  // sign_up with email and password providers.
   public email_create_user(email: string , password: string , name: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
@@ -147,5 +147,9 @@ export class UserService {
     });
 
   }
-
+  // read all users
+  public Read_Users () {
+    const Users_ref: AngularFirestoreCollection<any> = this.afs.collection('Users');
+    return Users_ref.valueChanges();
+  }
 }

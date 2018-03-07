@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import {ChatbotService,
         UserService,
-        LoginGuard
+        LoginGuard,
+        ChatsmainService
 } from './services.index';
 
 
@@ -16,7 +17,8 @@ import {ChatbotService,
   providers : [
     ChatbotService,
     UserService,
-    LoginGuard
+    LoginGuard,
+    ChatsmainService
   ]
 })
 export class ServicesModule { }

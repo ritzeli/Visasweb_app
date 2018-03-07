@@ -6,7 +6,30 @@
       <ngb-tabset>
         <ngb-tab title="Mis Chats">
           <ng-template ngbTabContent>
-            <div class="inb-right">
+            <div class="">
+              <div (click)="onSelect(message)" *ngFor="let message of Users; let i = index" [class.selected]="message === selectedMessage" class="list-group-item list-group-item-action border-left-0 border-right-0 flex-column">
+                <div class="d-flex">
+                  <div class="">
+                    <div *ngIf="message.img" class="avatar-status bg-{{message.type}}"> <img alt="" class="avatar-sm rounded-circle" [src]= "message.img" /> </div> <img *ngIf="!message.type" alt="" class="avatar-sm rounded-circle" src="{{message.avatar}}" />
+                  </div>
+                  <div class="pl-3">
+                    <div class="d-flex w-100 justify-content-between align-items-center">
+                      <small class="font-medium text-{{message.type}}">
+                        <i class="fa fa-circle text-{{message.type}} m-r-5 font-10"></i>{{message.name}}
+                      </small>
+                      <small class="bold text-muted time ">  {{ message.last_date | date: 'MMMM d' }} </small>
+                    </div>
+                    <p class="mb-0 font-14 "> {{message.email}} </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab>
+          <ng-template ngbTabTitle><b>General Chats</b></ng-template>
+          <ng-template ngbTabContent>
+            <div class="">
               <div (click)="onSelect(message)" *ngFor="let message of messages; let i = index" [class.selected]="message === selectedMessage" class="list-group-item list-group-item-action border-left-0 border-right-0 flex-column">
                 <div class="d-flex">
                   <div class="">
@@ -21,59 +44,6 @@
                     </div>
                     <p class="mb-0 font-14 "> {{message.subject}} </p>
                   </div>
-                </div>
-              </div>
-            </div>
-          </ng-template>
-        </ngb-tab>
-        <ngb-tab>
-          <ng-template ngbTabTitle><b>General Chats</b></ng-template>
-          <ng-template ngbTabContent>
-            <div class="card-body" style="border-bottom: solid 1px gainsboro">
-              <div class="row p-t-10 p-b-10">
-
-                <div class="col p-r-0">
-                  <h1 class="font-light">86</h1>
-                  <h6 class="text-muted">New Clients</h6></div>
-
-                <div class="col text-right align-self-center">
-                  <div class="display-4"><i class="mdi mdi-account-circle text-success"></i></div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body" style="border-bottom: solid 1px gainsboro">
-              <div class="row p-t-10 p-b-10">
-
-                <div class="col p-r-0">
-                  <h1 class="font-light">86</h1>
-                  <h6 class="text-muted">New Clients</h6></div>
-
-                <div class="col text-right align-self-center">
-                  <div class="display-4"><i class="mdi mdi-account-circle text-info"></i></div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body" style="border-bottom: solid 1px gainsboro">
-              <div class="row p-t-10 p-b-10">
-
-                <div class="col p-r-0">
-                  <h1 class="font-light">86</h1>
-                  <h6 class="text-muted">New Clients</h6></div>
-
-                <div class="col text-right align-self-center">
-                  <div class="display-4"><i class="mdi mdi-account-circle text-info"></i></div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body" style="border-bottom: solid 1px gainsboro">
-              <div class="row p-t-10 p-b-10">
-
-                <div class="col p-r-0">
-                  <h1 class="font-light">86</h1>
-                  <h6 class="text-muted">New Clients</h6></div>
-
-                <div class="col text-right align-self-center">
-                  <div class="display-4"><i class="mdi mdi-account-circle text-info"></i></div>
                 </div>
               </div>
             </div>
