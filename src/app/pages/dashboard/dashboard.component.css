@@ -1,0 +1,11 @@
+.card-dashboard{
+  background-color: white;
+  margin: 2px ;
+}
+.icon-dashboard{
+  font-size: 50px;
+  color: white;
+}
+.lstick{
+  background: darkslategrey !important;
+}
