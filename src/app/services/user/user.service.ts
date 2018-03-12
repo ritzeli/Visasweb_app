@@ -24,6 +24,7 @@ interface User {
   date_created?: any;
   last_date?: any;
   key_view?: any;
+  type_User?: any;
   roles?: Roles;
 }
 @Injectable()
@@ -95,6 +96,15 @@ export class UserService {
       email: user.email,
       img: user.photoURL,
       name: name,
+      type_User: {
+        client: true,
+        providers: {
+          agent: false,
+          counter: false
+        },
+        sellers: false,
+        investors: false
+      },
       date_created: user.metadata.a,
       key_view: ['visasweb'],
       roles: {  subscriber: true}
