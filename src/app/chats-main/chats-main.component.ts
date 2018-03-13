@@ -16,9 +16,8 @@ export class ChatsMainComponent implements OnInit {
   ban: any;
   user_chat: any = {} ;
   User_chatG: any;
-  RoomBot: any = [] ;
   RoomBot_id: any ;
-  RooomG_id: any;
+  RoomG_id: any;
   constructor(public chat_bot_service: ChatbotService,
               public user_service: UserService,
               public router: Router,
@@ -38,9 +37,9 @@ export class ChatsMainComponent implements OnInit {
         // console.log(params['id_one']);
         // console.log(params['id_two']);
         // console.log(params['id_Room']);
-        this.RooomG_id = params['id_Room'];
+        this.RoomG_id = params['id_Room'];
         this.User_chatG = this.user_chat.User_id;
-        this.chat_main_service.read_messagesG(this.RooomG_id).subscribe(res => {
+        this.chat_main_service.read_messagesG(this.RoomG_id).subscribe(res => {
             console.log(res);
           }
         );
@@ -49,7 +48,8 @@ export class ChatsMainComponent implements OnInit {
   }
 
   sendMessage() {
-    this.chat_main_service.converse_general( this.formValue, this.User_chatG, this.RooomG_id )
+    // todo put validation
+    this.chat_main_service.converse_general( this.formValue, this.User_chatG, this.RoomG_id )
       .then();
     this.formValue = '';
   }

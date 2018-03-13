@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {UserService} from '../../services/services.index';
 import {ChatsmainService} from '../../services/services.index';
+import {ChatstranslationService} from '../../services/services.index';
 
 @Component({
   selector: 'app-agent',
@@ -142,7 +143,8 @@ export class AgentComponent implements OnInit {
   }];
   constructor(public router: Router,
               public user_service: UserService,
-              public chat_main_service: ChatsmainService) { }
+              public chat_main_service: ChatsmainService,
+              public chat_translation_service: ChatstranslationService) { }
    user_chat: any ;
   RoomG: any;
   RoomG_id: any;
@@ -150,10 +152,8 @@ export class AgentComponent implements OnInit {
   ngOnInit() {
     this.user_service.user.subscribe(user => {
       this.user_chat = user;
-      console.log(this.user_chat.User_id);
       this.user_service.Read_Users()
         .subscribe(Users => {
-          console.log(Users);
           this.Users = Users;
         });
     });
@@ -161,6 +161,7 @@ export class AgentComponent implements OnInit {
   onSelect(message) {
     const client_id = this.user_chat.User_id;
     const supplier_id = message.User_id;
-    this.chat_main_service.ChatG_started(client_id, supplier_id);
+    // this.chat_main_service.ChatG_started(client_id, supplier_id);
+       this.chat_translation_service.ChatT_started(client_id, supplier_id);
   }
 }

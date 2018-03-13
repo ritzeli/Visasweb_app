@@ -9,6 +9,7 @@ import {SignupComponent} from './signup/signup.component';
 import {RestoreComponent} from './login/restore.component';
 import {ChatsVisaswebComponent} from './chats-visasweb/chats-visasweb.component';
 import {ChatsMainComponent} from './chats-main/chats-main.component';
+import {ChatsTranslationComponent} from './chats-translation/chats-translation.component';
 // guards
 import {LoginGuard} from './services/services.index';
 
@@ -18,6 +19,7 @@ export const Approutes: Routes = [
   {path: 'restore/auth', component: RestoreComponent},
   {path: 'page-not-found', component: PagenotfoundComponent},
   {path: 'main-chat/:id_one/:id_two/:id_Room', component: ChatsMainComponent, canActivate: [ LoginGuard ]},
+  {path: 'main-translation/:id_one/:id_two/:id_Room', component: ChatsTranslationComponent, canActivate: [ LoginGuard ]},
   {path: 'info-chat', component: ChatsVisaswebComponent, canActivate: [ LoginGuard ]},
 {
     path: '',

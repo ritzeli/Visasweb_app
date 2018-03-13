@@ -162,4 +162,9 @@ export class UserService {
     const Users_ref: AngularFirestoreCollection<any> = this.afs.collection('Users');
     return Users_ref.valueChanges();
   }
+  // read one user
+  public Read_one_user(User_id: any){
+    const User_ref: AngularFirestoreDocument<any> = this.afs.collection('Users').doc(User_id);
+    return User_ref.valueChanges();
+  }
 }
