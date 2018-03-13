@@ -169,3 +169,6 @@ export class UserService {
     return User_ref.valueChanges();
   }
 }
+
+// todo connect user in the app
+
