@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
       return;
     }
     const name = this.forma.value.name;
-    const email =  this.forma.value.email;
+    const email =  this.forma.value.email.toLowerCase();
     const password = this.forma.value.password;
     this.user_services.email_create_user(email, password, name ).then(() => {
         this.router.navigate(['/login']).then(() => {

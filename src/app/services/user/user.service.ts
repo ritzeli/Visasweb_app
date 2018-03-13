@@ -89,6 +89,7 @@ export class UserService {
       });
   }
   // for email
+  // todo security rules for database
   private  New_user_data_email(user, name: string) {
     const userRef1: AngularFirestoreDocument<any> = this.afs.doc( 'Users/' + user.uid);
     const data: User = {

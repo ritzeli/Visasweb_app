@@ -43,13 +43,13 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 // todo  error with jquery
   login_up() {
-    console.log(this.login_form.value);
-    const email = this.login_form.value.user_name;
+    const email = this.login_form.value.user_name.toLowerCase();
+    console.log(email);
     const password =  this.login_form.value.password;
     this.user_services.email_sign_up(email , password).then();
   }
   restore_login() {
-    const email_restore = this.login_restore.value.user_email;
+    const email_restore = this.login_restore.value.user_email.toLowerCase();
     this.user_services.account_recovery(email_restore);
   }
 }
