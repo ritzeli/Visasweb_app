@@ -8,8 +8,8 @@
           <ng-template ngbTabContent>
             <div class="">
               <div (click)="onSelect(message)" *ngFor="let message of Users; let i = index" [class.selected]="message === selectedMessage" class="list-group-item list-group-item-action border-left-0 border-right-0 flex-column">
-                <div class="d-flex">
-                  <div class="">
+                <div class="d-flex" *ngIf="!(User_no === message.User_id)">
+                  <div >
                     <div *ngIf="message.img" class="avatar-status bg-{{message.type}}"> <img alt="" class="avatar-sm rounded-circle" [src]= "message.img" /> </div> <img *ngIf="!message.type" alt="" class="avatar-sm rounded-circle" src="{{message.avatar}}" />
                   </div>
                   <div class="pl-3">

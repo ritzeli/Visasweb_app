@@ -149,9 +149,11 @@ export class AgentComponent implements OnInit {
   RoomG: any;
   RoomG_id: any;
   Users: any;
+  User_no:any;
   ngOnInit() {
     this.user_service.user.subscribe(user => {
       this.user_chat = user;
+      this.User_no = user.User_id;
       this.user_service.Read_Users()
         .subscribe(Users => {
           this.Users = Users;
