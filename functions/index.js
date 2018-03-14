@@ -74,6 +74,7 @@ function createTranslationPromise(lang,in_lang ,snapshot,RoomTId, MessagesTColle
         const resData = JSON.parse(response.body).data;
         console.log(resData);
         translation = resData.translations[0].translatedText;
+        console.log(translation);
         const db = admin.firestore();
         const userRef = db.collection('RoomsT/'+ RoomTId + '/' + MessagesTCollectionId).doc(MessageTId);
         return userRef.update({send_message:translation}).then((res) => {
