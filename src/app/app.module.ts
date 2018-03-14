@@ -36,6 +36,7 @@ import { RestoreComponent } from './login/restore.component';
 import { ChatsVisaswebComponent } from './chats-visasweb/chats-visasweb.component';
 import { ChatsMainComponent } from './chats-main/chats-main.component';
 import { ChatsTranslationComponent } from './chats-translation/chats-translation.component';
+import {ImagenPipe} from './pipes/imagen.pipe';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -57,7 +58,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RestoreComponent,
     ChatsVisaswebComponent,
     ChatsMainComponent,
-    ChatsTranslationComponent
+    ChatsTranslationComponent,
+    ImagenPipe
   ],
   imports: [
     CommonModule,

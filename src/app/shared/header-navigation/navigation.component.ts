@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit ,OnInit} from '@angular/core';
 import { NgbModal, ModalDismissReasons, NgbPanelChangeEvent, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import {UserService} from '../../services/user/user.service';
@@ -8,8 +8,9 @@ declare var $: any;
   selector: 'ap-navigation',
   templateUrl: './navigation.component.html'
 })
-export class NavigationComponent implements AfterViewInit {
+export class NavigationComponent implements AfterViewInit, OnInit {
 	name:string;
+	User: any = [];
   	public config: PerfectScrollbarConfigInterface = {};
   	constructor(private modalService: NgbModal, private user_service: UserService ) {
     }
@@ -65,8 +66,16 @@ export class NavigationComponent implements AfterViewInit {
       subject: 'Just see the my admin!',
       time: '9:00 AM'
     }];
-    ngAfterViewInit() {
 
+    ngOnInit(){
+      this.user_service.user.subscribe(res =>{
+        this.User = res;
+        console.log(this.User);
+      });
+
+    }
+
+    ngAfterViewInit() {
         var set = function() {
             var width = (window.innerWidth > 0) ? window.innerWidth : this.screen.width;
             var topOffset = 0;
@@ -78,15 +87,13 @@ export class NavigationComponent implements AfterViewInit {
         };
         $(window).ready(set);
         $(window).on("resize", set);
-
-
         $(".search-box a, .search-box .app-search .srh-btn").on('click', function () {
             $(".app-search").toggle(200);
         });
-
-
         $("body").trigger("resize");
     }
+
+
   Logout_off() {
       this.user_service.logout_visasweb();
     }

@@ -17,7 +17,9 @@ export class ChatsTranslationComponent implements OnInit {
   User_chatT: any;
   User_lang: any;
   friend_lang: any;
+  friend_profile:any = [];
   RoomT_id: any;
+  User: any = [];
   constructor(public user_service: UserService,
               public router: Router,
               public activated_router: ActivatedRoute,
@@ -26,6 +28,7 @@ export class ChatsTranslationComponent implements OnInit {
   ngOnInit() {
     this.user_service.user.subscribe( User => {
       this.user_chat = User;
+      this.User = User;
       this.activated_router.params.subscribe(params => {
         // console.log(params['id_one']);
         // console.log(params['id_two']);
@@ -34,6 +37,7 @@ export class ChatsTranslationComponent implements OnInit {
           this.RoomT_id = params['id_Room'];
           this.User_chatT = this.user_chat.User_id;
           this.User_lang = this.user_chat.lang;
+          this.friend_profile = ress;
           this.friend_lang = ress.lang;
           this.chat_translation_service.read_messagesT(this.RoomT_id).subscribe(res => {
               console.log(res);

@@ -15,6 +15,7 @@ export class ChatsMainComponent implements OnInit {
   formValue: any;
   ban: any;
   user_chat: any = {} ;
+  User: any = [];
   User_chatG: any;
   RoomBot_id: any ;
   RoomG_id: any;
@@ -33,6 +34,7 @@ export class ChatsMainComponent implements OnInit {
   ngOnInit() {
     this.user_service.user.subscribe( User => {
       this.user_chat = User;
+      this.User = User;
       this.activated_router.params.subscribe(params => {
         // console.log(params['id_one']);
         // console.log(params['id_two']);

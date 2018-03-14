@@ -4,6 +4,8 @@ import { ROUTES } from './menu-items';
 import {UserService} from '../../services/user/user.service';
 import { RouteInfo } from "./sidebar.metadata";
 import { Router, ActivatedRoute } from "@angular/router";
+import {runInThisContext} from 'vm';
+
 declare var $: any;
 @Component({
   selector: 'ap-sidebar',
@@ -11,6 +13,7 @@ declare var $: any;
 
 })
 export class SidebarComponent implements OnInit {
+  User: any = [];
   showMenu: string = '';
     showSubMenu: string = '';
     public sidebarnavItems: any[];
@@ -49,6 +52,10 @@ export class SidebarComponent implements OnInit {
             });
 
         });
+
+       this.user_service.user.subscribe(res =>{
+         this.User = res;
+       });
 
     }
 
