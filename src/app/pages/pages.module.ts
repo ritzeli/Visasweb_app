@@ -13,6 +13,7 @@ import {ServicesModule} from '../services/services.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './profile/profile.component';
 import { PricingComponent } from './pricing/pricing.component';
+import { FormsGeneralComponent } from './forms-general/forms-general.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { PricingComponent } from './pricing/pricing.component';
     AgentComponent,
     ChatBotComponent,
     ProfileComponent,
-    PricingComponent
+    PricingComponent,
+    FormsGeneralComponent
   ],
   providers: [
   ]
