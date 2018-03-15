@@ -11,6 +11,7 @@ import { AgentComponent } from './agent/agent.component';
 import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import {ServicesModule} from '../services/services.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     CoursesComponent,
     CourseComponent,
     AgentComponent,
-    ChatBotComponent
+    ChatBotComponent,
+    ProfileComponent
   ],
   providers: [
   ]

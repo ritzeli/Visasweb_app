@@ -13,6 +13,7 @@ export class NavigationComponent implements AfterViewInit, OnInit {
   User: any = [];
   ban_menu = false;
   menu_close: string = 'ti-menu';
+  member:any = 'Gratis';
   	public config: PerfectScrollbarConfigInterface = {};
   	constructor(private modalService: NgbModal, private user_service: UserService ) {
     }
