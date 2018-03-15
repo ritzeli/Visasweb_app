@@ -215,10 +215,16 @@
                       </div>
                     </li>
                     <li role="separator" class="divider"></li>
-                    <li><a [routerLink]="['/profile']"><i class="ti-user"></i> My Profile</a></li>
-                    <li><a [routerLink]="['/agent']"><i class="ti-email"></i> Agentes</a></li>
+                    <li><a [routerLink]="['/profile']"><i class="ti-user"></i> Mi Perfil</a></li>
+                    <li><a [routerLink]="['/agent']"><i class="icon-people"></i> Mis Agentes</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                    <li>
+                      <div class="dw-user-box">
+                        <div class="u-text">
+                          <p style="font-size: 15px" class="text-muted">Membresia: <span style="font-size: 15px">{{member}}</span></p>
+                          <a [routerLink]="['/pricing']" class="btn btn-rounded btn-success btn-sm">Actualizar a Pro</a></div>
+                      </div>
+                    </li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
                   </ul>

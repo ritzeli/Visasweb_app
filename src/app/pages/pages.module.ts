@@ -12,6 +12,7 @@ import { ChatBotComponent } from './chat-bot/chat-bot.component';
 import {ServicesModule} from '../services/services.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './profile/profile.component';
+import { PricingComponent } from './pricing/pricing.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { ProfileComponent } from './profile/profile.component';
     CourseComponent,
     AgentComponent,
     ChatBotComponent,
-    ProfileComponent
+    ProfileComponent,
+    PricingComponent
   ],
   providers: [
   ]

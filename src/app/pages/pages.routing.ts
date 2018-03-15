@@ -6,6 +6,7 @@ import {CourseComponent} from './course/course.component';
 import {AgentComponent} from './agent/agent.component';
 import {ChatBotComponent} from './chat-bot/chat-bot.component';
 import {ProfileComponent} from './profile/profile.component';
+import {PricingComponent} from './pricing/pricing.component';
 
 export const routes_pages: Routes = [
   {path: 'dashboard', data: {title: 'Home', urls: [{title: 'Home', url: '/dashboard'}, {title: 'Home'}]}, component: DashboardComponent },
@@ -13,6 +14,7 @@ export const routes_pages: Routes = [
   {path: 'course/:id', data: {title: 'Curso', urls: [{title: 'Cursos', url: '/courses'}, {title: 'curso'}]}, component: CourseComponent },
   {path: 'agent', data: {title: 'Agentes', urls: [{title: 'Home', url: '/dashboard'}, {title: 'Agentes'}]}, component: AgentComponent },
   {path: 'chat-bot', data: {title: 'Chat-bot', urls: [{title: 'Home', url: '/dashboard'}, {title: 'Chat-bot'}]}, component: ChatBotComponent },
-  {path: 'profile', data: {title: 'Profile', urls: [{title: 'Home', url: '/dashboard'}, {title: 'Profile'}]}, component: ProfileComponent },
+  {path: 'profile', data: {title: 'Profile', urls: [{title: 'Home', url: '/dashboard'}, {title: 'Perfil'}]}, component: ProfileComponent },
+  {path: 'pricing', data: {title: 'Membresía precios', urls: [{title: 'Home', url: '/dashboard'}, {title: 'Membresía Precios'}]}, component: PricingComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
   ];
