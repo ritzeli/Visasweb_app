@@ -31,10 +31,12 @@ export class SignupComponent implements OnInit {
       password: new FormControl( null , Validators.required),
       password2: new FormControl(null , Validators.required),
       terms : new FormControl(false),
+      country: new FormControl('1'),
     }, {validators: this.the_same('password', 'password2')});
   }
 
   sing_up() {
+    console.log(this.forma.value);
     if ( this.forma.invalid) {
       return;
     }
