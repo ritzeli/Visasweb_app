@@ -11,11 +11,9 @@ declare var $: any;
 export class NavigationComponent implements AfterViewInit, OnInit {
   name: string;
   User: any = [];
-  ban_menu = false;
-  menu_close: string = 'ti-menu';
-  member:any = 'Silver (Gratuita)';
-  	public config: PerfectScrollbarConfigInterface = {};
-  	constructor(private modalService: NgbModal, private user_service: UserService ) {
+  member: any = 'Silver (Gratuita)';
+  public config: PerfectScrollbarConfigInterface = {};
+  constructor(private modalService: NgbModal, private user_service: UserService ) {
     }
     // This is for Notifications
     notifications: Object[] = [{
@@ -96,16 +94,7 @@ export class NavigationComponent implements AfterViewInit, OnInit {
         $("body").trigger("resize");
     }
 
-  public main_menu() {
-      if (this.ban_menu === false) {
-         this.menu_close = 'mdi mdi-close';
-         return this.ban_menu = true;
-      }
-      if(this.ban_menu === true) {
-        this.menu_close = 'ti-menu';
-        return this.ban_menu = false;
-      }
-  }
+
   Logout_off() {
       this.user_service.logout_visasweb();
     }
